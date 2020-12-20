@@ -5,13 +5,13 @@
 #### Clone and install dependencies
 ```bash
 $ git clone git@github.com:sammarxz/moneto.git
-cd moneto
-yarn
+$ cd moneto
+$ yarn
 ```
 
 #### Create docker container for postgres
 ```bash
-$ docker run --name moneto_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+$ docker run --name moneto_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d moneto
 ```
 
 #### Run build script for build ts files
