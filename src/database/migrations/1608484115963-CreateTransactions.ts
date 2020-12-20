@@ -20,6 +20,11 @@ export default class CreateTransactions1608484115963
             isNullable: false,
           },
           {
+            name: 'type',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'value',
             type: 'float',
             isNullable: false,

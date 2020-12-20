@@ -15,10 +15,13 @@ class Transaction {
   title: string;
 
   @Column()
-  category: string;
+  type: 'income' | 'outcome';
 
   @Column()
   value: number;
+
+  @Column()
+  category: string;
 
   @CreateDateColumn()
   created_at: Date;
