@@ -1,3 +1,4 @@
+import { request } from 'express';
 import { EntityRepository, Repository } from 'typeorm';
 
 import Transaction from '../models/Transaction';
@@ -10,8 +11,8 @@ interface Balance {
 
 @EntityRepository(Transaction)
 class TransactionsRepository extends Repository<Transaction> {
-  public async getBalance(): Promise<Balance> {
-    const transactions = await this.find();
+  public async getBalance(user_id: string): Promise<Balance> {
+    const transactions = await this.find({ where: { user_id } });
 
     const balance = transactions.reduce(
       (acc, { type, value }) => ({

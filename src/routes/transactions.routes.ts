@@ -4,23 +4,28 @@ import ListTransactionsService from '../services/Transactions/ListTransactionsSe
 import CreateTransactionService from '../services/Transactions/CreateTransactionService';
 import DeleteTransactionService from '../services/Transactions/DeleteTransactionService';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const transactionsRouter = Router();
+
+transactionsRouter.use(ensureAuthenticated);
 
 transactionsRouter.get('/', async (request, response) => {
   try {
     const listTransactions = new ListTransactionsService();
 
-    const list = await listTransactions.execute();
+    const list = await listTransactions.execute({ user_id: request.user.id });
 
     return response.status(200).json(list);
-  } catch (error) {
+  } catch (err) {
     return response.status(400).json({ error: err });
   }
 });
 
 transactionsRouter.post('/', async (request, response) => {
   try {
-    const { title, value, type, category, user_id } = request.body;
+    const { title, value, type, category } = request.body;
+    const { user } = request;
 
     const createTransaction = new CreateTransactionService();
 
@@ -29,7 +34,7 @@ transactionsRouter.post('/', async (request, response) => {
       value,
       type,
       category,
-      user_id,
+      user_id: user.id,
     });
 
     return response.json(transaction);
