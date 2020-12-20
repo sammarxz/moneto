@@ -6,13 +6,16 @@ import AppError from '../../errors/AppError';
 
 interface Request {
   id: string;
+  user_id: string;
 }
 
 class DeleteTransactionService {
-  public async execute({ id }: Request): Promise<void> {
+  public async execute({ id, user_id }: Request): Promise<void> {
     const transationRepository = getCustomRepository(TransationRepository);
 
-    const transaction = transationRepository.findOne({ where: { id } });
+    const transaction = await transationRepository.findOne({
+      where: { id, user_id },
+    });
 
     if (!transaction) {
       throw new AppError('Transaction does not exists');
