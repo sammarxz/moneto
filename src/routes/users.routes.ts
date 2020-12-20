@@ -20,7 +20,7 @@ usersRouter.post('/', async (request, response) => {
 
     return response.json(user);
   } catch (err) {
-    return response.json({ error: err });
+    return response.status(400).json({ error: err });
   }
 });
 
