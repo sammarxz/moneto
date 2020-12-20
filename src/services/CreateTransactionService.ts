@@ -12,14 +12,6 @@ interface Request {
   category: string;
 }
 
-interface Response {
-  id: string;
-  title: string;
-  value: number;
-  type: 'income' | 'outcome';
-  category: string;
-}
-
 class CreateTransactionService {
   public async execute({
     title,
