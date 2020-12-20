@@ -3,7 +3,6 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('transactions')
@@ -25,9 +24,6 @@ class Transaction {
 
   @CreateDateColumn()
   created_at: Date;
-
-  @UpdateDateColumn()
-  updated_at: Date;
 }
 
 export default Transaction;
