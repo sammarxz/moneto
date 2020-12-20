@@ -1,8 +1,8 @@
 import { getCustomRepository } from 'typeorm';
 
-import TransactionsRepository from '../repositories/TransactionsRepository';
+import TransactionsRepository from '../../repositories/TransactionsRepository';
 
-import Transaction from '../models/Transaction';
+import Transaction from '../../models/Transaction';
 
 interface Balance {
   income: number;

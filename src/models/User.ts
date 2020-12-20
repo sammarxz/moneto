@@ -4,12 +4,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
-  OneToMany,
 } from 'typeorm';
 
-import Transaction from './Transaction';
-
-@Entity('user')
+@Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
@@ -22,9 +19,6 @@ class User {
 
   @Column()
   password: string;
-
-  @OneToMany(() => Transaction, transaction => transaction.id)
-  transactions: Transaction[];
 
   @CreateDateColumn()
   created_at: Date;

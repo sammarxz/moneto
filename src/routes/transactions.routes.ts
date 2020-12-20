@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
-import ListTransactionsService from '../services/ListTransactionsService';
-import CreateTransactionService from '../services/CreateTransactionService';
-import DeleteTransactionService from '../services/DeleteTransactionService';
+import ListTransactionsService from '../services/Transactions/ListTransactionsService';
+import CreateTransactionService from '../services/Transactions/CreateTransactionService';
+import DeleteTransactionService from '../services/Transactions/DeleteTransactionService';
 
 const transactionsRouter = Router();
 
@@ -15,7 +15,7 @@ transactionsRouter.get('/', async (request, response) => {
 });
 
 transactionsRouter.post('/', async (request, response) => {
-  const { title, value, type, category } = request.body;
+  const { title, value, type, category, user_id } = request.body;
 
   const createTransaction = new CreateTransactionService();
 
@@ -24,6 +24,7 @@ transactionsRouter.post('/', async (request, response) => {
     value,
     type,
     category,
+    user_id,
   });
 
   return response.json(transaction);
