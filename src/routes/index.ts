@@ -1,18 +1,9 @@
 import { Router } from 'express';
 
+import transactionsRouter from './transactions.routes';
+
 const routes = Router();
 
-routes.get('/', (req, res) => res.json({ message: 'Hello Moneto' }));
-
-routes.post('/', (req, res) => {
-  const { name, email } = req.body;
-
-  const user = {
-    name,
-    email,
-  };
-
-  return res.json(user);
-});
+routes.use('/transactions', transactionsRouter);
 
 export default routes;
