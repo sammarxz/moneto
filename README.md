@@ -11,7 +11,7 @@ $ yarn
 
 #### Create docker container for postgres
 ```bash
-$ docker run --name moneto_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d moneto
+$ docker run --name moneto_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
 ```
 
 #### Run build script for build ts files
