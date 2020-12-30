@@ -35,6 +35,13 @@ $ yarn typeorm migration:run
 $ yarn build
 ```
 
+### Create .env file in root directory
+```bash
+echo '
+JWT_TOKEN=sometokenid
+' > .env
+```
+
 ### Run dev server
 ```bash
 $ yarn dev:server
