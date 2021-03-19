@@ -1,4 +1,4 @@
-# Moneto
+# Moneto API
 
 ## Usage
 
@@ -37,8 +37,8 @@ $ yarn build
 
 ### Create .env file in root directory
 ```bash
-echo '
-JWT_TOKEN=sometokenid
+echo 'JWT_TOKEN=SomeTokenId
+DATABASE_URL=postgres://postgres:docker@localhost:5432/moneto
 ' > .env
 ```
 
