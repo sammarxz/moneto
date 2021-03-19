@@ -25,7 +25,10 @@ export default function ensureAuthenticated(
   const [, token] = authHeader.split(' ');
 
   try {
-    const decoded = verify(token, authConfig.jwt.secret);
+    let decoded;
+    if (authConfig.jwt.secret) {
+      decoded = verify(token, authConfig.jwt.secret);
+    }
 
     const { sub } = decoded as TokenPaypload;
 

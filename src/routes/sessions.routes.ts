@@ -10,12 +10,18 @@ sessionsRouter.post('/', async (request, response) => {
 
     const authenticateUser = new AuthenticateUserService();
 
-    const { user, token } = await authenticateUser.execute({
+    type UserType = {
+      user: {
+        email: string;
+        password?: string;
+      };
+      token: string;
+    };
+
+    const { user, token }: UserType = await authenticateUser.execute({
       email,
       password,
     });
-
-    console.log('user', user);
 
     delete user.password;
 

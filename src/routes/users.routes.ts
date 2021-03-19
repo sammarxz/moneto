@@ -10,7 +10,13 @@ usersRouter.post('/', async (request, response) => {
 
     const createTransaction = new CreateUserService();
 
-    const user = await createTransaction.execute({
+    type UserType = {
+      name: string;
+      email: string;
+      password?: string;
+    };
+
+    const user: UserType = await createTransaction.execute({
       name,
       email,
       password,

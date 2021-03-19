@@ -36,7 +36,7 @@ class AuthenticateUserService {
       throw new AppError('Incorrect email/password combination.');
     }
 
-    const token = sign({}, secret, {
+    const token = sign({}, undefined !== secret ? secret : '', {
       subject: user.id,
       expiresIn,
     });
