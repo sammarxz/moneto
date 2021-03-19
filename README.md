@@ -39,6 +39,7 @@ $ yarn build
 ```bash
 echo 'JWT_TOKEN=SomeTokenId
 DATABASE_URL=postgres://postgres:docker@localhost:5432/moneto
+PROCESS_TYPE=dev
 ' > .env
 ```
 
