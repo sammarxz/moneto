@@ -17,7 +17,7 @@ $ docker run --name moneto_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d 
 ### Create moneto database
 ```bash
 $ docker ps -a
-$ docker exec -it <CONTAINER_ID> bash
+$ sudo docker exec -it <CONTAINER_ID> psql -U postgres postgres
 ```
 
 **Inside the psql:**
