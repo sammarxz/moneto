@@ -1,5 +1,6 @@
 const BASE_FOLDER = process.env.PROCESS_TYPE == 'dev' ? './src' : './dist'
 const BASE_EXT = process.env.PROCESS_TYPE == 'dev' ? 'ts' : 'js'
+const SSL = process.env.PROCESS_TYPE == 'dev' ? false : true
 
 module.exports = {
   type: 'postgres',
@@ -14,7 +15,7 @@ module.exports = {
     migrationsDir: './src/database/migrations',
     entitiesDir: './src/models'
   },
-  ssl: true,
+  ssl: SSL,
   extra: {
     ssl: {
       rejectUnauthorized: false,
